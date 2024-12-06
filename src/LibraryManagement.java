@@ -38,8 +38,7 @@ public class LibraryManagement {
                     scanner.nextLine();
 
                     Member newMember = new Member(id, name);
-                    library.addMember(newMember);
-                    System.out.println("Member added successfully.");
+                    System.out.println(library.addMember(newMember) ? "Member added to library successfully." : "Member already exists.");
                     break;
                 case 2:
                     System.out.print("Enter book ID: ");
@@ -50,8 +49,7 @@ public class LibraryManagement {
                     scanner.nextLine();
 
                     Book newBook = new Book(id, title);
-                    library.addBook(newBook);
-                    System.out.println("Book added to library successfully.");
+                    System.out.println(library.addBook(newBook) ? "Book added to library successfully." : "Book already exists.");
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");
