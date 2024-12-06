@@ -60,5 +60,21 @@ public class Transaction {
             e.printStackTrace();
         }
     }
+
+    public void displayTransactionHistory() {
+        // Display transactions from the text file
+        try {
+            File file = new File("transactions.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 }
 
