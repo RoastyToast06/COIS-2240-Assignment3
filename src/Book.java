@@ -3,8 +3,12 @@ public class Book {
     private String title;
     private boolean available;
 
-    public Book(int id, String title) {
-        this.id = id;
+    public Book(int id, String title) throws Exception {
+        if (isValidId(id))
+        	this.id = id;
+        else
+        	throw new Exception("Invalid ID.");
+        
         this.title = title;
         this.available = true;
     }

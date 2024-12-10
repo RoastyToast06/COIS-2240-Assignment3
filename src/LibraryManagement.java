@@ -48,9 +48,15 @@ public class LibraryManagement {
                     
                     scanner.nextLine();
 
-                    Book newBook = new Book(id, title);
-                    System.out.println(library.addBook(newBook) ? "Book added to library successfully." : "Book already exists.");
-                    break;
+                    try {
+                    	Book newBook = new Book(id, title);
+                        System.out.println(library.addBook(newBook) ? "Book added to library successfully." : "Book already exists.");
+                        break;
+                    }
+                    catch (Exception e) {
+                    	System.out.println("Error: Invalid ID.");
+                    }
+                    
                 case 3:
                 	System.out.println("\n--- Available Members ---");
                     for (Member member : library.getMembers()) {
