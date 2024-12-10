@@ -40,6 +40,25 @@ public class LibraryManagementTest {
 			assertEquals("Invalid ID.", e.getMessage());
 		}
 	}
+
+	@Test
+	public void testBorrowReturn() throws Exception {
+		Book b1 = new Book(100, "Cake");
+		Member m1 = new Member(6, "Aiden");
+
+		assertTrue(b1.isAvailable());
+
+		// Borrowing the book
+		Transaction t1 = Transaction.getTransaction();
+		assertTrue(t1.borrowBook(b1, m1));
+		assertFalse(b1.isAvailable());
+		assertFalse(t1.borrowBook(b1, m1));
+
+		// Returning the book
+		assertTrue(t1.returnBook(b1, m1));
+		assertTrue(b1.isAvailable());
+		assertFalse(t1.returnBook(b1, m1));
+	}
 	
 
 }
